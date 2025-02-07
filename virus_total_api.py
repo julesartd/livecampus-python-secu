@@ -3,7 +3,7 @@ from typing import Optional
 
 # IMPORTANT: VIRUS TOTAL AUTORISE 4 REQUETES PAR MINUTE AVEC UNE CLE API GRATUITE
 # J'AI 4 URLS dans mon fichier urls.txt donc je vais faire 4 requetes, donc attrndre 1 minute avant de relancer l'exo 3
-
+# https://docs.virustotal.com/reference/public-vs-premium-api
 
 VIRUSTOTAL_API_KEY = '67d7d1b7764edb63282261917b847010f4271a66fe358b174be3947b98a0380e'
 VIRUSTOTAL_URL = 'https://www.virustotal.com/api/v3'
@@ -22,7 +22,6 @@ async def get_virustotal_analysis_id(url: str) -> Optional[str]:
             async with session.post(endpoint, headers=headers, data=data) as response:
                 if response.status == 200:
                     data = await response.json()
-                    # Retourne l'ID d'analyse pour récupérer les résultats
                     return data['data']['id']
                 else:
                     print(f"Erreur lors de l'envoi de l'URL à VirusTotal: {response.status} - {await response.text()}")
