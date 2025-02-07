@@ -1,0 +1,11 @@
+[project]
+name = "eval-python-security-correction"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiohttp>=3.11.12",
+    "requests>=2.32.3",
+    "tldextract>=5.1.3",
+]
